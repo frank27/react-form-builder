@@ -132,11 +132,15 @@ export default class FormElementsEdit extends React.Component {
       editorState = this.convertFromHTML(this.props.element.label);
     }
 
+    let closeButton =  <i className="float-right fas fa-times dismiss-edit"></i>
+    if (this.props.closeButton) {
+        closeButton = this.props.closeButton;
+    }
     return (
       <div>
         <div className="clearfix">
           <h4 className="float-left">{this.props.element.text}</h4>
-          <i className="float-right fas fa-times dismiss-edit" onClick={this.props.manualEditModeOff}></i>
+          <div onClick={this.props.manualEditModeOff}>{closeButton}</div>
         </div>
         { this.props.element.hasOwnProperty('content') &&
           <div className="form-group">

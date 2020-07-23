@@ -47,8 +47,8 @@ class ReactFormBuilder extends React.Component {
     if (this.props.toolbarItems) { toolbarProps.items = this.props.toolbarItems; }
     return (
       <DndProvider backend={HTML5Backend}>
-       <div>
-         {/* <div>
+        <div>
+          {/* <div>
            <p>
              It is easy to implement a sortable interface with React DnD. Just make
              the same component both a drag source and a drop target, and reorder
@@ -56,26 +56,38 @@ class ReactFormBuilder extends React.Component {
            </p>
            <Container />
          </div> */}
-         <div className="react-form-builder clearfix">
-           <div>
-             <Preview files={this.props.files}
-                 manualEditModeOff={this.manualEditModeOff.bind(this)}
-                 showCorrectColumn={this.props.showCorrectColumn}
-                 parent={this}
-                 data={this.props.data}
-                 url={this.props.url}
-                 saveUrl={this.props.saveUrl}
-                 onLoad={this.props.onLoad}
-                 onPost={this.props.onPost}
-                 editModeOn={this.editModeOn}
-                 editMode={this.state.editMode}
-                 variables={this.props.variables}
-                 editElement={this.state.editElement} />
-             <Toolbar {...toolbarProps} />
-           </div>
-         </div>
-       </div>
-       </DndProvider>
+          <div className="react-form-builder clearfix">
+            <div>
+              <Preview
+                files={this.props.files}
+                manualEditModeOff={this.manualEditModeOff.bind(this)}
+                showCorrectColumn={this.props.showCorrectColumn}
+                parent={this}
+                data={this.props.data}
+                url={this.props.url}
+                saveUrl={this.props.saveUrl}
+                onLoad={this.props.onLoad}
+                onPost={this.props.onPost}
+                editModeOn={this.editModeOn}
+                editMode={this.state.editMode}
+                variables={this.props.variables}
+                editElement={this.state.editElement}
+                closeButton={
+                  <div className="text-right">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-outline-success"
+                    >
+                      Save
+                    </button>
+                  </div>
+                }
+              />
+              <Toolbar {...toolbarProps} />
+            </div>
+          </div>
+        </div>
+      </DndProvider>
     );
   }
 }
